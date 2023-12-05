@@ -1,10 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+import initialState from "../initialState";
+
+
 const userSlice = createSlice(
     {
         name: "user",
 
-        initialState: {},
+        initialState: initialState.user,
 
         reducers: {
             signIn: () => "sign-in",
