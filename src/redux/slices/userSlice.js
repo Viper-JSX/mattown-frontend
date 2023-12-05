@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import initialState from "../initialState";
+import userReducers from "../reducers/userReducers";
 
 
 const userSlice = createSlice(
@@ -9,11 +10,7 @@ const userSlice = createSlice(
 
         initialState: initialState.user,
 
-        reducers: {
-            signIn: () => "sign-in",
-            signUp: () => "sign-up",
-            authorize: () => "authorize"
-        }
+        reducers: userReducers
     }
 );
 

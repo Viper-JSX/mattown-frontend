@@ -1,6 +1,7 @@
 const initialState = {
     user: {
-        user: null
+        user: null,
+        token: null
     }
 }
 
