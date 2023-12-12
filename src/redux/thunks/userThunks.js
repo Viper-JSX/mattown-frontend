@@ -10,8 +10,8 @@ const signIn = createAsyncThunk("/user/sign-in", async (state, action) => {
 });
 
 
-const signUp = createAsyncThunk("/user/sign-in", async (state, action) => {
-    const response = await axiosClient.post("/auth/sign-up", { email: "yura@gmail.com", password: "yurashtefanko"});
+const signUp = createAsyncThunk("/user/sign-up", async (state, action) => {
+    const response = await axiosClient.post("/auth/sign-in", { firstname: "Yura", lastname: "Shtefanko", email: "yurik@gmail.com", password: "yurashtefanko"});
     return response.data;
 });
 
