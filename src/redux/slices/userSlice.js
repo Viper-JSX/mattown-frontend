@@ -53,7 +53,7 @@ const userSlice = createSlice(
             })
 
             .addCase(authorize.fulfilled, (state, action) => {
-                console.log("Authorization successfull");
+                console.log("Authorization successfull", action.payload);
             })
 
             .addCase(authorize.rejected, (state, action) => {
