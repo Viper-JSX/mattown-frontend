@@ -15,16 +15,18 @@ const userSlice = createSlice(
             builder
             .addCase(signIn.pending, (state, action) => {
                 // state.status = "loading";
+                console.log("Signing-in");
             })
 
             .addCase(signIn.fulfilled, (state, action) => {
                 // state.status = "loading";
-                console.log("User received")
+                console.log("Sign-in successfull")
                 state.user = action.payload;
             })
 
             .addCase(signIn.rejected, (state, action) => {
                 // state.status = "loading";
+                console.log("Error during sign-in");
             })
         }
     }

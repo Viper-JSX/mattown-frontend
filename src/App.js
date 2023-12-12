@@ -11,7 +11,9 @@ function App(){
     const state = useSelector((state) => state);
     const dispatch = useDispatch();
 
-    useEffect(() => dispatch(signIn()), [])
+    useEffect(() => { 
+        dispatch(signIn()) 
+    }, [])
     console.log(state);
 
     return(
