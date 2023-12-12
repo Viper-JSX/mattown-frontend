@@ -11,8 +11,21 @@ const signIn = createAsyncThunk("/user/sign-in", async (state, action) => {
 
 
 const signUp = createAsyncThunk("/user/sign-up", async (state, action) => {
-    const response = await axiosClient.post("/auth/sign-in", { firstname: "Yura", lastname: "Shtefanko", email: "yurik@gmail.com", password: "yurashtefanko"});
+    const response = await axiosClient.post("/auth/sign-up", { firstname: "Yura", lastname: "Shtefanko", email: "yurik@gmail.com", password: "yurashtefanko"});
     return response.data;
 });
 
-export { signIn, signUp };
+const authorize = createAsyncThunk("/auth/authorize", async (state, action) => {
+    const response = await axiosClient.post(
+        "/auth/authorize", 
+        { 
+            headers:  {
+                authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiO…DAxfQ.lA2KMhqlSAZoKteDuVHiLsTThDAhMyRNVgxpZl-ELHA"
+            }
+        }
+    );
+
+    return response.data;
+});
+
+export { signIn, signUp, authorize };

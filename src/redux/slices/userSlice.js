@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import initialState from "../initialState";
 import userReducers from "../reducers/userReducers";
-import { signIn, signUp } from "../thunks/userThunks"; 
+import { authorize, signIn, signUp } from "../thunks/userThunks"; 
 
 
 const userSlice = createSlice(
@@ -31,6 +31,7 @@ const userSlice = createSlice(
             })
 
 
+
             .addCase(signUp.pending, (state, action) => {
                 console.log("Signing-up");
             })
@@ -43,6 +44,20 @@ const userSlice = createSlice(
 
             .addCase(signUp.rejected, (state, action) => {
                 console.log("Sign-up failded");
+            })
+
+
+
+            .addCase(authorize.pending, (state, action) => {
+                console.log("Authorizing");
+            })
+
+            .addCase(authorize.fulfilled, (state, action) => {
+                console.log("Authorization successfull");
+            })
+
+            .addCase(authorize.rejected, (state, action) => {
+                console.log("Authorization failed");
             })
         }
     }

@@ -5,14 +5,14 @@ import ReactDOM from "react-dom";
 import Layout from "./components/Layout";
 
 import { useDispatch, useSelector } from "react-redux";
-import { signIn, signUp } from "./redux/thunks/userThunks";
+import { authorize, signIn, signUp } from "./redux/thunks/userThunks";
  
 function App(){
     const state = useSelector((state) => state);
     const dispatch = useDispatch();
 
     useEffect(() => { 
-        dispatch(signUp()) 
+        dispatch(authorize()); 
     }, [])
     console.log(state);
 
