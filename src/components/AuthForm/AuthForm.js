@@ -17,45 +17,44 @@ const AuthForm = ({ handleSignIn, handleSignUp }) => {
   }
   
   
-  function handleModeChange(mode) {
-    setMode(mode);
-  }
+    function handleModeChange(mode) {
+        setMode(mode);
+    }
   
-  function handleChange(event){
-    const fieldName = event.target.name;
-    const fieldValue = event.target.value;
-    setValues((prev) => ({...prev, fieldName: fieldValue}));
-  }
+    function handleChange(event){
+        const fieldName = event.target.name;
+        const fieldValue = event.target.value;
+        setValues((prev) => ({...prev, fieldName: fieldValue}));
+    }
 
   
-  return (
-    <form onSubmit={handleSubmit}>
-      <Switcher 
-        currentOption={mode} 
-        options={authFormModes} 
-        handler={handleModeChange} 
-    />
+    return (
+        <form onSubmit={handleSubmit}>
+            <Switcher 
+                currentOption={mode} 
+                options={authFormModes} 
+                handler={handleModeChange} 
+            />
       
-      {
-        mode === authFormModes.signIn ?
-        <SignIn 
-          values = { {email: values.email, password: values.password} }
-            
-          handleChange={handleChange} 
-        />
-        
-        :
-        
-        <SignUp 
-          values = { {email: values.email, password: values.password} }
-          handleChange={handleChange}
-        />
-      }
+            {
+                mode === authFormModes.signIn ?
+                <SignIn 
+                  values = { {email: values.email, password: values.password} }
+
+                  handleChange={handleChange} 
+                />
+
+                :
+
+                <SignUp 
+                  values = { {email: values.email, password: values.password} }
+                  handleChange={handleChange}
+                />
+            }
       
-      <input type="submit" value={mode === authFormModes.signIn ? "Sign-In" : "SignUp"} /> 
-      
-    </form>
-  );
+            <input type="submit" value={mode === authFormModes.signIn ? "Sign-In" : "SignUp"} /> 
+        </form>
+    );
 }
 
 export default AuthForm;
