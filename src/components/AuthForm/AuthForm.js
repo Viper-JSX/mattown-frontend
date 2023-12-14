@@ -1,7 +1,7 @@
 import { authFormModes } from "../variousThings/constants";
 
 import Switcher from "../../Switcher/Switcher.js";
-import SignIn from "../../../../Mattown/client/components/AuthForm/SignIn.js";
+import SignIn from "./SignIn.js";
 import SignUp from "SignUp.js";
 
 
@@ -24,7 +24,7 @@ const AuthForm = ({ handleSignIn, handleSignUp }) => {
     function handleChange(event){
         const fieldName = event.target.name;
         const fieldValue = event.target.value;
-        setValues((prev) => ({...prev, fieldName: fieldValue}));
+        setValues((prev) => ({...prev, [fieldName]: fieldValue}));
     }
 
   
