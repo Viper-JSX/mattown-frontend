@@ -7,15 +7,13 @@ import SignUp from "SignUp.js";
 
 const AuthForm = ({ handleSignIn, handleSignUp }) => {
   const [ mode, setMode ] = useState(authFormModes.signIn);
-  
   const [ values, setValues ] = {email: "", password: ""};
   
-  function handleSubmit (event) {
-    if (mode === authFormModes.signIn) {
-      return signIn(event);
-    }
-    
-     signUp(event);
+    function handleSubmit (event) {
+        if (mode === authFormModes.signIn) {
+            return handleSignIn(event);
+        }
+    handleSignUp(event);
   }
   
   
@@ -32,7 +30,11 @@ const AuthForm = ({ handleSignIn, handleSignUp }) => {
   
   return (
     <form onSubmit={handleSubmit}>
-      <Switcher currentOption = {mode} options = {authFormModes} handler = {handleModeChange} />
+      <Switcher 
+        currentOption={mode} 
+        options={authFormModes} 
+        handler={handleModeChange} 
+    />
       
       {
         mode === authFormModes.signIn ?
