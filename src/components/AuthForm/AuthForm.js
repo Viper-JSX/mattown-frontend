@@ -8,7 +8,7 @@ import SignUp from "./SignUp.js";
 
 const AuthForm = ({ handleSignIn, handleSignUp }) => {
   const [ mode, setMode ] = useState(authFormModes.signIn);
-  const [ values, setValues ] = {email: "", password: ""};
+  const [ values, setValues ] = useState({email: "", password: ""});
   
     function handleSubmit (event) {
         if (mode === authFormModes.signIn) {
@@ -25,6 +25,7 @@ const AuthForm = ({ handleSignIn, handleSignUp }) => {
     function handleChange(event){
         const fieldName = event.target.name;
         const fieldValue = event.target.value;
+        console.log(fieldName, fieldValue);
         setValues((prev) => ({...prev, [fieldName]: fieldValue}));
     }
 
@@ -40,7 +41,7 @@ const AuthForm = ({ handleSignIn, handleSignUp }) => {
             {
                 mode === authFormModes.signIn ?
                 <SignIn 
-                  values = { {email: values.email, password: values.password} }
+                  values={{email: values.email, password: values.password}}
 
                   handleChange={handleChange} 
                 />
@@ -48,7 +49,7 @@ const AuthForm = ({ handleSignIn, handleSignUp }) => {
                 :
 
                 <SignUp 
-                  values = { {email: values.email, password: values.password} }
+                  values={{email: values.email, password: values.password} }
                   handleChange={handleChange}
                 />
             }
