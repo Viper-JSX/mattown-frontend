@@ -1,13 +1,22 @@
 import { Routes, Route } from "react-router-dom";
+import AuthForm from "./AuthForm/AuthForm";
 
 const Layout = ({
     handleSignIn,
-    handleSignU
+    handleSignUp
 }) => {
     return (
         <Routes>
             <Route path="" element={ <h2>Feed</h2> } />
-            <Route path="/auth" element={ <h2>Auth</h2> } />
+            <Route 
+                path="/auth" 
+                element={ 
+                    <AuthForm 
+                        handleSignIn={handleSignIn}
+                        handleSignUp={handleSignUp}
+                    /> 
+                } 
+            />
 
             <Route path="/profile" element={ <h2>User Profile</h2> } />
 

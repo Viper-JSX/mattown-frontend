@@ -1,8 +1,9 @@
-import { authFormModes } from "../variousThings/constants";
+import { useState } from "react";
+import { authFormModes } from "../../variousThings/constants";
 
-import Switcher from "../../Switcher/Switcher.js";
+//import Switcher from "../../Switcher/Switcher.js";
 import SignIn from "./SignIn.js";
-import SignUp from "SignUp.js";
+import SignUp from "./SignUp.js";
 
 
 const AuthForm = ({ handleSignIn, handleSignUp }) => {
@@ -30,11 +31,11 @@ const AuthForm = ({ handleSignIn, handleSignUp }) => {
   
     return (
         <form onSubmit={handleSubmit}>
-            <Switcher 
+            {/* <Switcher 
                 currentOption={mode} 
                 options={authFormModes} 
                 handler={handleModeChange} 
-            />
+            /> */}
       
             {
                 mode === authFormModes.signIn ?
