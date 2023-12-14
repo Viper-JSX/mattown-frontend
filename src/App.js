@@ -16,9 +16,20 @@ function App(){
     }, [])
     console.log(state);
 
+    const handleSignIn = () => {
+        console.log("Sign-in");
+    }
+
+    const handleSignUp = () => {
+        console.log("Sign-up");
+    }
+
     return(
         <div className='App'>
-            <Layout />
+            <Layout 
+                handleSignIn={handleSignIn}
+                handleSignUp={handleSignUp}
+            />
         </div>
     );
 }

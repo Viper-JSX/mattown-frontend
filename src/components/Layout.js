@@ -1,6 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 
-const Layout = () => {
+const Layout = ({
+    handleSignIn,
+    handleSignU
+}) => {
     return (
         <Routes>
             <Route path="" element={ <h2>Feed</h2> } />
