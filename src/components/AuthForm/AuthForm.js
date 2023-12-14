@@ -7,10 +7,12 @@ import SignUp from "./SignUp.js";
 
 
 const AuthForm = ({ handleSignIn, handleSignUp }) => {
-  const [ mode, setMode ] = useState(authFormModes.signIn);
+  const [ mode, setMode ] = useState(authFormModes.signUp);
   const [ values, setValues ] = useState({email: "", password: ""});
   
     function handleSubmit (event) {
+        event.preventDefault();
+
         if (mode === authFormModes.signIn) {
             return handleSignIn(event);
         }
