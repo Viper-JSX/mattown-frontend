@@ -16,12 +16,12 @@ const signUp = createAsyncThunk("/user/sign-up", async (state, action) => {
 });
 
 const authorize = createAsyncThunk("/auth/authorize", async (state, action) => {
-    const response = await axios.post(
-        "http://localhost:1337/api/auth/authorize", 
+    const response = await axiosClient.post(
+        "/auth/authorize", 
         { 
-            headers:  {
-                Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiO…DAxfQ.lA2KMhqlSAZoKteDuVHiLsTThDAhMyRNVgxpZl-ELHA"
-            }
+           headers:  {
+               Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiO…DAxfQ.lA2KMhqlSAZoKteDuVHiLsTThDAhMyRNVgxpZl-ELHA"
+           }
         }
     );
 
