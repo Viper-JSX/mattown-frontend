@@ -27,7 +27,7 @@ const userSlice = createSlice(
 
             .addCase(signIn.rejected, (state, action) => {
                 // state.status = "loading";
-                console.log("Error during sign-in");
+                console.log("Error during sign-in", action.error);
             })
 
 
