@@ -57,7 +57,7 @@ const userSlice = createSlice(
             })
 
             .addCase(authorize.rejected, (state, action) => {
-                console.log("Authorization failed");
+                console.log("Authorization failed", action.error);
             })
         }
     }

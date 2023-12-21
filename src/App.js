@@ -12,7 +12,12 @@ function App(){
     const dispatch = useDispatch();
 
     useEffect(() => { 
-        //dispatch(authorize()); 
+        const token = localStorage.getItem("token");
+
+        if (token) {
+            dispatch(authorize({ token }));
+        }
+
     }, [])
     console.log(state);
 

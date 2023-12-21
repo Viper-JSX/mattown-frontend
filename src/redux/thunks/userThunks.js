@@ -10,17 +10,19 @@ const signIn = createAsyncThunk("/user/sign-in", async (payload, action) => {
 
 
 const signUp = createAsyncThunk("http://localhost:1337/api/user/sign-up", async (payload, action) => {
-    //const response = await axiosClient.post("/auth/sign-up", { firstname: "Yura", lastname: "Shtefanko", email: "yurik@gmail.com", password: "yurashtefanko"});
+    //const response = await axiosClient.post("/auth/sign-up", payload);
     const response = await axios.post("http://localhost:1337/api/auth/sign-up", payload);
     return response.data;
 });
 
 const authorize = createAsyncThunk("/auth/authorize", async (payload, action) => {
-    // const response = await axiosClient.post(
+    const token = payload.token;
+    console.log("token", token);
+    // const response = await axiosClient.post( //Fix error
     //     "/auth/authorize", 
     //     { 
     //        headers:  {
-    //            Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiO…DAxfQ.lA2KMhqlSAZoKteDuVHiLsTThDAhMyRNVgxpZl-ELHA"
+    //            Authorization: token
     //        }
     //     }
     // );
@@ -29,8 +31,7 @@ const authorize = createAsyncThunk("/auth/authorize", async (payload, action) =>
         "http://localhost:1337/api/auth/authorize", 
         { 
             headers:  {
-                Authhorization: payload.token
-               //Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiO…DAxfQ.lA2KMhqlSAZoKteDuVHiLsTThDAhMyRNVgxpZl-ELHA"
+                Authhorization: token
            }
         }
     );
