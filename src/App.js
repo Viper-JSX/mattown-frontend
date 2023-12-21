@@ -12,15 +12,17 @@ function App(){
     const dispatch = useDispatch();
 
     useEffect(() => { 
-        dispatch(authorize()); 
+        //dispatch(authorize()); 
     }, [])
     console.log(state);
 
-    const handleSignIn = () => {
-        console.log("Sign-in");
+    const handleSignIn = (values) => {
+        dispatch(signIn(values));
+        console.log("Sign-in", values);
     }
 
-    const handleSignUp = () => {
+    const handleSignUp = (values) => {
+        dispatch(signUp(values));
         console.log("Sign-up");
     }
 
