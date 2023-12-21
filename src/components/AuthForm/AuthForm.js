@@ -44,7 +44,6 @@ const AuthForm = ({ handleSignIn, handleSignUp }) => {
                 mode === authFormModes.signIn ?
                 <SignIn 
                   values={{email: values.email, password: values.password}}
-
                   handleChange={handleChange} 
                 />
 
