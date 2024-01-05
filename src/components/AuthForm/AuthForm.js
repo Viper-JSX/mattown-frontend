@@ -4,20 +4,25 @@ import { authFormModes } from "../../variousThings/constants";
 //import Switcher from "../../Switcher/Switcher.js";
 import SignIn from "./SignIn.js";
 import SignUp from "./SignUp.js";
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router";
 
 
 const AuthForm = ({ handleSignIn, handleSignUp }) => {
-  const [ mode, setMode ] = useState(authFormModes.signIn);
-  const [ values, setValues ] = useState({ firstname: "", lastname: "", email: "", password: "" });
+    const [ mode, setMode ] = useState(authFormModes.signIn);
+    const [ values, setValues ] = useState({ firstname: "", lastname: "", email: "", password: "" });
+    const user = useSelector((state) => state.user.user);
   
+    console.log(user);
     function handleSubmit (event) {
         event.preventDefault();
 
         if (mode === authFormModes.signIn) {
             return handleSignIn({ email: values.email, password: values.password });
         }
-    handleSignUp(values);
-  }
+
+        handleSignUp(values);
+    }
   
   
     function handleModeChange(mode) {
@@ -31,6 +36,12 @@ const AuthForm = ({ handleSignIn, handleSignUp }) => {
         setValues((prev) => ({...prev, [fieldName]: fieldValue}));
     }
 
+
+    if (user) {
+        return (
+            <Navigate to="/" />
+        );
+    }
   
     return (
         <form onSubmit={handleSubmit}>
