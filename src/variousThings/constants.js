@@ -1,6 +1,6 @@
 const authFormModes = {
     signIn: "signIn",
     signUp: "signUp"
-  }
+};
   
-  export { authFormModes };
+export { authFormModes };

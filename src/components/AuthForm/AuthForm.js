@@ -9,7 +9,7 @@ import { Navigate } from "react-router";
 
 
 const AuthForm = ({ handleSignIn, handleSignUp }) => {
-    const [ mode, setMode ] = useState(authFormModes.signIn);
+    const [ mode, setMode ] = useState(authFormModes[0]);
     const [ values, setValues ] = useState({ firstname: "", lastname: "", email: "", password: "" });
     const user = useSelector((state) => state.user.user);
   
@@ -47,8 +47,8 @@ const AuthForm = ({ handleSignIn, handleSignUp }) => {
         <form onSubmit={handleSubmit}>
             <Switcher 
                 currentOption={mode} 
-                options={authFormModes} 
-                handler={handleModeChange} 
+                options={Object.values(authFormModes)} 
+                handleSwitch={handleModeChange} 
             />
       
             {
