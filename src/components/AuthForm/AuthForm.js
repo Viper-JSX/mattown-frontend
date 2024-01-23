@@ -45,11 +45,11 @@ const AuthForm = ({ handleSignIn, handleSignUp }) => {
   
     return (
         <form onSubmit={handleSubmit}>
-            {/* <Switcher 
+            <Switcher 
                 currentOption={mode} 
                 options={authFormModes} 
                 handler={handleModeChange} 
-            /> */}
+            />
       
             {
                 mode === authFormModes.signIn ?
