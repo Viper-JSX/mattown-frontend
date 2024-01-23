@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { authFormModes } from "../../variousThings/constants";
 
-//import Switcher from "../../Switcher/Switcher.js";
+import Switcher from "../Switcher/Switcher.js";
 import SignIn from "./SignIn.js";
 import SignUp from "./SignUp.js";
 import { useSelector } from "react-redux";
