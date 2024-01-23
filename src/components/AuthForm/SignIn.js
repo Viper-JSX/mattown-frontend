@@ -1,8 +1,8 @@
 const SignIn = ({values, handleChange}) => {
     return (
         <div>
-            <input type="email" name="email" value={values.email} onChange={handleChange}/>
-            <input type="password" name="password" value={values.password} onChange={handleChange}/>
+            <input type="email" name="email" placeholder="Email" value={values.email} onChange={handleChange}/>
+            <input type="password" name="password" placeholder="Password" value={values.password} onChange={handleChange}/>
         </div>
     )
 }
