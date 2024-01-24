@@ -18,20 +18,14 @@ const signUp = createAsyncThunk("http://localhost:1337/api/user/sign-up", async 
 const authorize = createAsyncThunk("/auth/authorize", async (payload, action) => {
     const token = payload.token;
     console.log("token", token);
-    // const response = await axiosClient.post( //Fix error
-    //     "/auth/authorize", 
-    //     { 
-    //        headers:  {
-    //            Authorization: token
-    //        }
-    //     }
-    // );
-
-    const response = await axios.post(
-        "http://localhost:1337/api/auth/authorize", 
+    const response = await axiosClient.post( //Fix error
+        "/auth/authorize", 
+        
+        { },
+        
         { 
-            headers:  {
-                Authhorization: token
+           headers:  {
+               Authorization: `Bearer ${token}` //may need to change token fomrat
            }
         }
     );
