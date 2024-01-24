@@ -55,7 +55,8 @@ const userSlice = createSlice(
             })
 
             .addCase(authorize.fulfilled, (state, action) => {
-                const { token } = action.payload;
+                const { user, token } = action.payload;
+                state.user = user; //user set and redirect occurs, if you want to prevent rediret just remove token from localStorage to prevent auto sign-in
                 console.log("Authorization successfull", action.payload);
             })
 
