@@ -21,8 +21,10 @@ const userSlice = createSlice(
             .addCase(signIn.fulfilled, (state, action) => {
                 // state.status = "loading";
                 console.log("Sign-in successfull")
-                state.user = action.payload.user;
-                state.token = action.payload.token;
+                const { user, token } =  action.payload;
+                state.user = user;
+                state.token = token;
+                localStorage.setItem("token", token); //Will need to change to more secure and elegant way
             })
 
             .addCase(signIn.rejected, (state, action) => {
@@ -53,6 +55,7 @@ const userSlice = createSlice(
             })
 
             .addCase(authorize.fulfilled, (state, action) => {
+                const { token } = action.payload;
                 console.log("Authorization successfull", action.payload);
             })
 
