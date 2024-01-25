@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import AuthForm from "./AuthForm/AuthForm";
+import UserProfile from "./UserProfile/UserProfile";
 
 const Layout = ({
     handleSignIn,
@@ -18,7 +19,7 @@ const Layout = ({
                 } 
             />
 
-            <Route path="/profile" element={ <h2>User Profile</h2> } />
+            <Route path="/me" element={ <UserProfile /> } />
 
             <Route path="/communities" element={ <h2>Communities</h2> }>
                 <Route path="" element={ <h2>Communities list</h2> } />
