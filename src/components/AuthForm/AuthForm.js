@@ -39,7 +39,7 @@ const AuthForm = ({ handleSignIn, handleSignUp }) => {
 
     if (user) {
         return (
-            <Navigate to="/" />
+            <Navigate to="/me" />
         );
     }
   
