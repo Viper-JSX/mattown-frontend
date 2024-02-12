@@ -10,14 +10,16 @@ const UserProfile = () => {
     const [ user, setUser ] = useState(null);
 
     useEffect(async () => {
-       const data = getUserById(id);
-       setUser(data);
+       const { fetchedUser } = (await getUserById(id)).data;
+       setUser(fetchedUser);
     }, []);
+
+    console.log("Received user", user);
 
     return (
         <div className="user-profile">
-            Guest user
-            { user?.firstname }
+            Guest user 
+            { id }
         </div>
     );
 }
