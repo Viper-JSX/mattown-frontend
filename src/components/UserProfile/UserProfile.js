@@ -8,7 +8,7 @@ const UserProfile = () => {
     const { id } = useParams(); //User ID
     const profileViewMode = Boolean(id) ? profileViewModes.guest : profileViewModes.own; //If there is an id it means that user views other user's profile, otherwise user views their own profile. ***Redo the logic in the future
 
-    const user = useSelector((state) => profileViewMode === profileViewModes.own ? "own" : "guest" /*state.user : getUserById("123")*/);
+    const user = useSelector((state) => profileViewMode === profileViewModes.own ? state.user.user : getUserById("123"));
 
     console.log(user);
 

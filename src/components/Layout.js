@@ -20,7 +20,7 @@ const Layout = ({
             />
 
             <Route path="/me" element={ <UserProfile /> } />
-            <Route path="/:id" element={ <UserProfile /> } />
+            <Route path="/users/:id" element={ <UserProfile /> } />
 
             <Route path="/communities" element={ <h2>Communities</h2> }>
                 <Route path="" element={ <h2>Communities list</h2> } />
