@@ -3,4 +3,9 @@ const authFormModes = {
     signUp: "signUp"
 };
   
+const profileViewModes = {
+    own: "own",
+    guest: "guest"
+};
+
 export { authFormModes };
