@@ -8,4 +8,4 @@ const profileViewModes = {
     guest: "guest"
 };
 
-export { authFormModes };
+export { authFormModes, profileViewModes };
