@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import AuthForm from "./AuthForm/AuthForm";
+import Profile from "./UserProfile/Profile";
 import UserProfile from "./UserProfile/UserProfile";
 
 const Layout = ({
@@ -19,7 +20,7 @@ const Layout = ({
                 } 
             />
 
-            <Route path="/me" element={ <UserProfile /> } />
+            <Route path="/me" element={ <Profile /> } />
             <Route path="/users/:id" element={ <UserProfile /> } />
 
             <Route path="/communities" element={ <h2>Communities</h2> }>
