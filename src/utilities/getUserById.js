@@ -1,7 +1,9 @@
+import axiosClient from "../axios/client";
+
 const getUserById = async (userId) => {
-    //await fetchuser;
+    const user = await axiosClient.get(`/users/${userId}`);
+
     console.log("Getting user by id: ", userId);
-    const user = "User";
     return user;
 }
 

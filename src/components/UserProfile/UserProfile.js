@@ -3,18 +3,21 @@ import { useParams } from "react-router-dom";
 
 import getUserById from "../../utilities/getUserById";
 import { profileViewModes } from "../../variousThings/constants";
+import { useEffect, useState } from "react";
 
 const UserProfile = () => {
     const { id } = useParams(); //User ID
-    const profileViewMode = Boolean(id) ? profileViewModes.guest : profileViewModes.own; //If there is an id it means that user views other user's profile, otherwise user views their own profile. ***Redo the logic in the future
+    const [ user, setUser ] = useState(null);
 
-    const user = useSelector((state) => profileViewMode === profileViewModes.own ? state.user.user : getUserById("123"));
-
-    console.log(user);
+    useEffect(async () => {
+       const data = getUserById(id);
+       setUser(data);
+    }, []);
 
     return (
         <div className="user-profile">
-            User
+            Guest user
+            { user?.firstname }
         </div>
     );
 }
