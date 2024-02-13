@@ -9,17 +9,33 @@ const UserProfile = () => {
     const { id } = useParams(); //User ID
     const [ user, setUser ] = useState(null);
 
-    useEffect(async () => {
-       const { fetchedUser } = (await getUserById(id)).data;
-       setUser(fetchedUser);
+    useEffect(() => {
+        getUserById(id)
+        .then((user) => {
+
+            if (!user) {
+                console.log("User does not exist");
+                return;
+            }
+
+            setUser(user);
+            console.log("Fetched user", data);
+        })
+        .catch((err) => {
+            console.log("Error when fetching user", err);      
+        })
     }, []);
 
     console.log("Received user", user);
 
+    if (!user) {
+        return null;
+    }
+
     return (
         <div className="user-profile">
             Guest user 
-            { id }
+            { user.firstname }
         </div>
     );
 }
