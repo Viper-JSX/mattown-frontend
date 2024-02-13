@@ -9,7 +9,7 @@ const UserProfile = () => {
     const { id } = useParams(); //User ID
     const [ user, setUser ] = useState(null);
 
-    useEffect(() => {
+    useEffect(() => { //try to convert to async/await
         getUserById(id)
         .then((user) => {
 
@@ -19,14 +19,12 @@ const UserProfile = () => {
             }
 
             setUser(user);
-            console.log("Fetched user", data);
         })
         .catch((err) => {
             console.log("Error when fetching user", err);      
         })
     }, []);
 
-    console.log("Received user", user);
 
     if (!user) {
         return null;
